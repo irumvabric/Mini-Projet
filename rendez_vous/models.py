@@ -30,7 +30,7 @@ class User(User):
     
 
 class Patient(models.Model):
-    user = models.OneToOneField(User, on_delete=models.PROTECT)
+    user = models.OneToOneField(User, on_delete=models.PROTECT,unique=True)
     date_of_birth = models.DateField()
     gender = models.CharField(max_length=10,choices=GenderConst,default=GenderConst.Male)
     adress = models.CharField(max_length=100)
@@ -41,7 +41,7 @@ class Patient(models.Model):
     
 
 class Doctor(models.Model):
-    user = models.OneToOneField(User, on_delete=models.PROTECT)
+    user = models.OneToOneField(User, on_delete=models.PROTECT,unique=True)
     speciality = models.CharField(max_length=100)
     date_of_birth = models.DateField()
     gender = models.CharField(max_length=10,choices=GenderConst,default=GenderConst.Male)
